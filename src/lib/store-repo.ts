@@ -18,8 +18,6 @@ export interface StoreRecord {
 
 /** Which stores are due for their daily briefing right now. */
 export async function storesDueNow(): Promise<StoreRecord[]> {
-  // Real version: query Supabase for stores where local time is ~5am
-  // and subscription_status is 'trialing' or 'active'.
   return [];
 }
 
@@ -37,8 +35,9 @@ export async function saveBriefing(
   items: BriefingItem[],
   fallbackNote?: string,
 ): Promise<void> {
-  // Real version: upsert into the `briefings` table (see supabase/schema.sql).
   console.log(`[stub] would save ${items.length} briefing item(s) for ${storeId} on ${day}`, {
     fallbackNote,
+  });
+}
   });
 }
