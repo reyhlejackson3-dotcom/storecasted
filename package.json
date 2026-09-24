@@ -1,0 +1,28 @@
+{
+  "name": "storecasted",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "check-env": "node --env-file-if-exists=.env --experimental-strip-types scripts/check-env.ts",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0",
+    "@supabase/supabase-js": "^2.58.0",
+    "next": "^15.5.26",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "square": "^43.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.1.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.0"
+  }
+}
