@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heritage Cards &amp; Gifts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Figtree:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#2a0a1e; --bg2:#3d112c;
+  --cream:#FAF5EC; --paper:#EFE6D6; --ink:#2B1A33;
+  --red:#8E1230; --red2:#C23A52; --gold:#E2B04A; --blush:#F0C9CF; --mute:#6b5878;
+  --display:'Young Serif',Georgia,serif;
+  --body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --hand:'Caveat','Segoe Script','Bradley Hand',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{font-family:var(--body);color:var(--cream);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ---------- pinned stage ---------- */
+#track{position:relative;height:1100vh}
+#stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;
+  background:
+    radial-gradient(ellipse 46% 60% at 50% -8%,rgba(172,128,148,.55),transparent 72%),
+    radial-gradient(ellipse at 50% 60%,#3d112c 0%,#2d091f 100%)}
+#frame{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;container-type:size;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 2.5%,#000 97.5%,transparent 100%);
+          mask-image:linear-gradient(to bottom,transparent 0,#000 2.5%,#000 97.5%,transparent 100%)}
+#vid{position:absolute;inset:0;width:100%;height:100%;display:block;background:transparent}
+
+/* frame-anchored overlays (sized in frame units so they stay locked to the footage) */
+.ov{position:absolute;container-type:inline-size;opacity:0;visibility:hidden;color:var(--ink);overflow:hidden}
+.ov .in{height:100%;display:flex;flex-direction:column}
+#ovC{left:38.67%;top:18.33%;width:22.66%;height:63.61%}
+#ovC .in{padding:8.4cqw 8.6cqw 7cqw}
+#ovC h3{font-family:var(--display);font-weight:400;font-size:13.6cqw;line-height:1.02}
+#ovC .sub{font-size:4.3cqw;color:var(--mute);margin:2cqw 0 4.2cqw;line-height:1.3}
+.tiles{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:2.8cqw}
+.tile{position:relative;border-radius:2.4cqw;padding:3cqw 3.2cqw;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;overflow:hidden}
+.tile svg{position:absolute;right:2.2cqw;top:2.2cqw;width:13cqw;height:13cqw}
+.tile b{font-family:var(--display);font-weight:400;font-size:5.9cqw;line-height:1.1}
+.tile span{font-size:4.1cqw;opacity:.92;margin-top:.6cqw}
+.t1{background:#B3213A}.t2{background:#B98A25}.t3{background:#587C8E}
+.t4{background:#1D5A4D}.t5{background:#C2566F}.t6{background:#4A2A5E}
+
+#ovDL{left:27.27%;top:18.33%;width:21.33%;height:63.61%}
+#ovDL .in{padding:12cqw 10cqw 8cqw 11cqw}
+#ovDR{left:48.59%;top:18.33%;width:22.03%;height:63.61%}
+#ovDR .in{padding:8.4cqw 8cqw 6cqw 11.5cqw}
+.lab{font-size:4.6cqw;color:var(--mute)}
+#ovDL h4{font-family:var(--display);font-weight:400;font-size:10.4cqw;line-height:1.05;margin:2.4cqw 0 5cqw}
+#ovDL p{font-family:var(--hand);font-size:9.6cqw;line-height:1.22;color:#4a2f5e;margin-bottom:4.4cqw}
+#ovDL .sig{font-size:12.5cqw;color:var(--red);margin-top:4cqw}
+.art{height:55cqw;border-radius:2.2cqw;overflow:hidden;margin:3cqw 0 4.4cqw}
+.art svg{display:block;width:100%;height:100%}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:3cqw}
+.row h3{font-family:var(--display);font-weight:400;font-size:7.5cqw;line-height:1.08}
+.row span{font-size:5.4cqw;font-weight:600;color:var(--red)}
+.q{font-family:var(--hand);font-size:8.6cqw;line-height:1.15;color:#4a2f5e;margin:2cqw 0 3.4cqw}
+.pair{font-size:4.7cqw;color:var(--mute);padding-top:3cqw;border-top:1px dashed #cdbfa6;margin-bottom:4cqw}
+.btn{align-self:flex-start;background:var(--ink);color:var(--cream);font-size:4.9cqw;font-weight:600;padding:2.8cqw 5.6cqw;border-radius:99px}
+.patch{position:absolute;width:2.4%;aspect-ratio:1;border-radius:50%;filter:blur(2.5px);opacity:0;visibility:hidden}
+#pL{left:45.85%;top:47.75%;background:#e8ddcb}
+#pR{left:48.9%;top:47.75%;background:#e8ded2}
+.clab{position:absolute;transform:translate(-50%,-50%) rotate(3deg);font-family:var(--display);font-size:1.12cqw;color:var(--ink);white-space:nowrap;opacity:0;visibility:hidden}
+
+/* ---------- screen-space text ---------- */
+.sp{position:absolute;z-index:3;pointer-events:none;opacity:0;visibility:hidden}
+#hero{left:6vw;top:50%;transform:translateY(-50%);max-width:32vw}
+#hero h1{font-family:var(--display);font-weight:400;font-size:clamp(50px,6.4vw,104px);line-height:.98;color:var(--cream)}
+#hero .sub{font-size:clamp(20px,2.4vw,34px);font-weight:600;color:var(--blush);margin:14px 0 18px}
+#hero .tagline{font-size:clamp(16px,1.35vw,20px);line-height:1.55;color:#e4c8d0;max-width:30ch}
+#hint{left:0;right:0;bottom:max(22px,3.4vh);text-align:center;font-size:15px;color:var(--blush)}
+#hint i{display:block;width:1px;height:26px;margin:8px auto 0;background:linear-gradient(var(--gold),transparent)}
+
+#tagWrap{left:50%;top:50%;width:min(88vw,520px);transform:translate(-50%,-50%) rotate(-2.2deg);z-index:4}
+.tag{position:relative;background:var(--cream);color:var(--ink);padding:46px 36px 30px;
+  clip-path:polygon(12% 0,88% 0,100% 11%,100% 100%,0 100%,0 11%);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.tag::before{content:"";position:absolute;left:50%;top:15px;width:15px;height:15px;margin-left:-7.5px;border-radius:50%;background:#5a0b1c;border:3px solid var(--gold)}
+.tag h2{font-family:var(--display);font-weight:400;font-size:clamp(26px,5.2vw,36px);line-height:1.12;margin-bottom:14px}
+.tag p{font-size:clamp(15px,3.6vw,17px);line-height:1.6;color:#4a3857;margin-bottom:16px}
+.tag .sign{font-family:var(--hand);font-size:30px;line-height:1;color:var(--red);margin-bottom:16px}
+.tag ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #d9cdb8;padding-top:14px}
+.tag li{font-size:13.5px;line-height:1.35;padding:0 10px;border-left:1px solid #d9cdb8;color:#4a3857}
+.tag li:first-child{border-left:0;padding-left:0}
+.tag li b{display:block;font-weight:600;color:var(--ink);font-size:14.5px}
+
+#seasonal{left:6vw;top:50%;transform:translateY(-50%);width:min(24vw,340px)}
+#seasonal h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,4.6vw,68px);line-height:1;margin-bottom:10px}
+#seasonal .lead{font-size:clamp(15px,1.3vw,18px);color:var(--blush);line-height:1.5;margin-bottom:22px}
+#seasonal dl div{padding:12px 0;border-top:1px solid rgba(250,245,236,.18)}
+#seasonal dt{font-family:var(--display);font-size:clamp(18px,1.6vw,23px)}
+#seasonal dd{font-size:clamp(14px,1.15vw,16px);color:var(--blush);margin-top:2px}
+
+/* ---------- contact ---------- */
+#contact{background:var(--bg);padding:clamp(56px,9vw,120px) clamp(20px,5vw,72px) 40px}
+.c-wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.c-left h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,6vw,64px);line-height:1.04;margin-bottom:16px}
+.c-left>p{font-size:18px;line-height:1.6;color:var(--blush);max-width:46ch;margin-bottom:26px}
+.details{display:grid;gap:14px;margin-bottom:28px}
+.details div{display:grid;grid-template-columns:96px 1fr;gap:12px;font-size:16px;line-height:1.45;padding-bottom:14px;border-bottom:1px solid rgba(250,245,236,.14)}
+.details dt{color:var(--gold);font-weight:600}
+form{display:grid;gap:12px;max-width:460px}
+label{font-size:14px;color:var(--blush);display:grid;gap:6px}
+input,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--cream);border:2px solid transparent;border-radius:8px;padding:12px 14px;width:100%}
+textarea{min-height:104px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button{font:inherit;font-weight:600;font-size:16px;background:var(--red2);color:#fff;border:0;border-radius:99px;padding:14px 26px;cursor:pointer;justify-self:start}
+button:hover{background:#d4536a}
+.map-box{background:var(--cream);color:var(--ink);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.map-box svg{display:block;width:100%;height:auto}
+.map-info{padding:20px 22px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.map-info b{font-family:var(--display);font-weight:400;font-size:21px;display:block}
+.map-info span{font-size:15px;color:var(--mute)}
+.map-info a{color:#fff;background:#1D5A4D;padding:11px 20px;border-radius:99px;font-weight:600;font-size:15px;text-decoration:none}
+.foot{max-width:1120px;margin:56px auto 0;padding-top:20px;border-top:1px solid rgba(250,245,236,.14);font-size:14px;color:#b69aab;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* portrait / phones: text goes above the object instead of beside it */
+@media (max-aspect-ratio:1/1){
+  #hero{left:0;right:0;top:6vh;transform:none;max-width:none;text-align:center;padding:0 24px}
+  #hero h1{font-size:clamp(46px,14vw,84px)}
+  #hero .sub{margin:8px 0 10px;font-size:clamp(18px,5vw,26px)}
+  #hero .tagline{margin:0 auto;font-size:15px}
+  #seasonal{left:0;right:0;top:5vh;transform:none;width:auto;text-align:center;padding:0 24px}
+  #seasonal h2{font-size:clamp(36px,11vw,56px)}
+  #seasonal .lead{margin-bottom:0}
+  #seasonal dl{display:none}
+}
+@media(max-width:820px){
+  .c-wrap{grid-template-columns:1fr}
+  .tag{padding:42px 26px 24px}
+}
+</style>
+</head>
+<body>
+<noscript><p style="padding:24px">This page animates as you scroll. Please enable JavaScript.</p></noscript>
+
+<div id="track">
+<div id="stage">
+
+  <div id="cam">
+    <div id="frame">
+      <video id="vid" poster="poster.jpg" muted playsinline preload="auto" aria-hidden="true">
+        <source src="hero.mp4" type="video/mp4">
+      </video>
+
+      <!-- Catalog: printed on the closed card -->
+      <div class="ov" id="ovC"><div class="in">
+        <h3>The Catalog</h3>
+        <p class="sub">Start with the moment, we’ll find the card.</p>
+        <div class="tiles">
+          <div class="tile t1"><svg viewBox="0 0 60 60" aria-hidden="true"><ellipse cx="30" cy="24" rx="15" ry="18" fill="#fff" fill-opacity=".92"/><path d="M30 42L26 48H34Z" fill="#fff"/><path d="M30 48C26 54 34 54 30 60" stroke="#fff" stroke-width="2" fill="none"/></svg><b>Birthday</b><span>from $4.50</span></div>
+          <div class="tile t2"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 8l6 14 15 2-11 10 3 15-13-8-13 8 3-15L9 24l15-2Z" fill="#fff" fill-opacity=".92"/></svg><b>Thank you</b><span>from $4.00</span></div>
+          <div class="tile t3"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M12 48C12 24 28 10 50 10C50 34 36 50 12 48Z" fill="#fff" fill-opacity=".92"/><path d="M12 48L38 22" stroke="#587C8E" stroke-width="2.5"/></svg><b>Sympathy</b><span>from $4.75</span></div>
+          <div class="tile t4"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6L44 30H16Z M30 18L48 46H12Z" fill="#fff" fill-opacity=".92"/><rect x="27" y="46" width="6" height="10" fill="#fff"/></svg><b>Holiday</b><span>from $5.00</span></div>
+          <div class="tile t5"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 52C8 36 8 14 22 12C28 11 30 16 30 18C30 16 32 11 38 12C52 14 52 36 30 52Z" fill="#fff" fill-opacity=".92"/></svg><b>Love</b><span>from $5.50</span></div>
+          <div class="tile t6"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="10" y="24" width="40" height="28" rx="3" fill="#fff" fill-opacity=".92"/><rect x="28" y="24" width="4" height="28" fill="#C2566F"/><path d="M30 24C20 8 12 22 30 24C48 22 40 8 30 24Z" fill="#E55468"/></svg><b>Gifts</b><span>from $8.00</span></div>
+        </div>
+      </div></div>
+
+      <!-- Open spread: Patti's note (left) and Card of the Week (right) -->
+      <div class="patch" id="pL"></div><div class="patch" id="pR"></div>
+      <div class="ov" id="ovDL"><div class="in">
+        <div class="lab">A note from Patti</div>
+        <h4>Why this one?</h4>
+        <p>Every fall someone comes in looking for a thank-you card that doesn’t sound like a form letter.</p>
+        <p>This one does the job in two words and a pile of leaves. Pair it with the maple candle by the register.</p>
+        <p class="sig">– Patti</p>
+      </div></div>
+      <div class="ov" id="ovDR"><div class="in">
+        <div class="lab">Card of the Week</div>
+        <div class="art">
+          <svg viewBox="0 0 404 290" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="404" height="290" fill="#E9A23B"/>
+            <circle cx="320" cy="70" r="46" fill="#F6D27A"/>
+            <path d="M0 220C80 170 140 240 220 200C300 160 340 220 404 190V290H0Z" fill="#B3541E"/>
+            <path d="M0 250C90 215 170 270 250 240C320 214 360 250 404 236V290H0Z" fill="#7A2E1D"/>
+            <g transform="translate(120 128) rotate(-18)"><path d="M0-52C14-40 30-44 36-30C50-34 56-18 48-6C60 4 52 20 40 20C40 34 22 38 12 30L2 62L-2 62L-8 30C-20 38-38 34-38 20C-50 20-58 4-48-6C-56-18-50-34-36-30C-30-44-14-40 0-52Z" fill="#C8283E"/><path d="M0-40L2 56" stroke="#7A1224" stroke-width="3" fill="none"/></g>
+            <g transform="translate(250 150) rotate(22) scale(.8)"><path d="M0-52C14-40 30-44 36-30C50-34 56-18 48-6C60 4 52 20 40 20C40 34 22 38 12 30L2 62L-2 62L-8 30C-20 38-38 34-38 20C-50 20-58 4-48-6C-56-18-50-34-36-30C-30-44-14-40 0-52Z" fill="#F4F0E4"/><path d="M0-40L2 56" stroke="#B3541E" stroke-width="3" fill="none"/></g>
+          </svg>
+        </div>
+        <div class="row"><h3>Maple &amp; Thanks</h3><span>$6.50</span></div>
+        <p class="q">“The warmest thank-you on the rack.”</p>
+        <p class="pair">Pairs with the maple candle, $12</p>
+        <span class="btn">Find it in the shop</span>
+      </div></div>
+
+      <!-- names on the seasonal cards in the open box -->
+      <div class="clab" id="cl1" style="left:37.9%;top:65.2%">Harvest</div>
+      <div class="clab" id="cl2" style="left:48.6%;top:64.6%">Winter</div>
+      <div class="clab" id="cl3" style="left:60.4%;top:66.2%">Valentine’s</div>
+    </div>
+  </div>
+
+  <!-- screen-space text -->
+  <div class="sp" id="hero">
+    <h1>Heritage</h1>
+    <p class="sub">Cards &amp; Gifts</p>
+    <p class="tagline">Pick the card, pair the gift, and say it right, all in one stop.</p>
+  </div>
+
+  <section class="sp" id="tagWrap" aria-label="About Heritage">
+    <div class="tag">
+      <h2>A small shop with a big card wall.</h2>
+      <p>Heritage Cards &amp; Gifts has been on the corner since 1998. Patti picks every card herself, then pairs it with something small to give along with it.</p>
+      <div class="sign">Patti</div>
+      <ul>
+        <li><b>Since 1998</b>Family run</li>
+        <li><b>Hand picked</b>No bulk racks</li>
+        <li><b>Local makers</b>On every shelf</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="sp" id="seasonal">
+    <h2>Seasonal</h2>
+    <p class="lead">What’s landing on the shelves next.</p>
+    <dl>
+      <div><dt>Harvest</dt><dd>Now through Nov 30</dd></div>
+      <div><dt>Winter holidays</dt><dd>Dec 1 to Jan 5</dd></div>
+      <div><dt>Valentine’s</dt><dd>Arrives Jan 20</dd></div>
+    </dl>
+  </div>
+
+  <div class="sp" id="hint"><span id="hintTxt">Scroll to unwrap</span><i></i></div>
+
+</div><!-- /stage -->
+</div><!-- /track -->
+
+<!-- CONTACT -->
+<section id="contact" aria-label="Contact and location">
+  <div class="c-wrap">
+    <div class="c-left">
+      <h2>Come say hi.</h2>
+      <p>Stop in for a card, stay for the gift table. Or send a note and Patti will get back to you.</p>
+      <dl class="details">
+        <div><dt>Visit</dt><dd>123 Main Street<br>Englewood, CO 80110</dd></div>
+        <div><dt>Call</dt><dd>(303) 555-0142</dd></div>
+        <div><dt>Email</dt><dd>hello@heritagecards.example</dd></div>
+        <div><dt>Hours</dt><dd>Mon to Sat 10am to 6pm<br>Sunday 12pm to 4pm</dd></div>
+      </dl>
+      <form id="cform">
+        <label>Your name<input type="text" name="name" autocomplete="name"></label>
+        <label>Email<input type="email" name="email" autocomplete="email"></label>
+        <label>Message<textarea name="msg"></textarea></label>
+        <button type="submit" id="cbtn">Send message</button>
+      </form>
+    </div>
+    <div class="map-box">
+      <svg viewBox="0 0 560 440" role="img" aria-label="Map placeholder showing the shop location">
+        <rect width="560" height="440" fill="#E9E2D2"/>
+        <path d="M-10 330C120 300 200 360 330 330C430 306 500 340 580 320V460H-10Z" fill="#B9D3CF"/>
+        <g fill="#F7F2E7" stroke="#D5CCB8" stroke-width="1">
+          <rect x="30" y="30" width="150" height="90" rx="6"/><rect x="200" y="30" width="110" height="90" rx="6"/>
+          <rect x="330" y="30" width="190" height="90" rx="6"/><rect x="30" y="150" width="110" height="110" rx="6"/>
+          <rect x="360" y="150" width="160" height="110" rx="6"/><rect x="30" y="285" width="130" height="30" rx="6"/>
+        </g>
+        <rect x="166" y="150" width="170" height="110" rx="6" fill="#CFE0C3"/>
+        <g stroke="#fff" stroke-width="16" stroke-linecap="round" fill="none"><path d="M-10 135H570"/><path d="M190 -10V300"/><path d="M345 -10V300"/></g>
+        <g stroke="#D5CCB8" stroke-width="1.5" stroke-dasharray="10 10" fill="none"><path d="M-10 135H570"/><path d="M190 -10V300"/><path d="M345 -10V300"/></g>
+        <text x="40" y="128" font-size="13" fill="#8a7596" style="font-family:var(--body)">Main Street</text>
+        <text x="200" y="210" font-size="13" fill="#4f7a55" style="font-family:var(--body)">Library Park</text>
+        <g transform="translate(190 135)"><ellipse cx="0" cy="26" rx="12" ry="4" fill="#000" opacity=".2"/><path d="M0 24C-16 4 -20 -6 -20 -14A20 20 0 1 1 20 -14C20 -6 16 4 0 24Z" fill="#8E1230"/><circle cx="0" cy="-14" r="7" fill="#FAF5EC"/></g>
+      </svg>
+      <div class="map-info">
+        <div><b>Heritage Cards &amp; Gifts</b><span>123 Main Street, Englewood, CO</span></div>
+        <a href="#contact">Get directions</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Design preview with placeholder content.</span><span>Heritage Cards &amp; Gifts</span></div>
+</section>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var clamp = function(x,a,b){ a=a===undefined?0:a; b=b===undefined?1:b; return Math.min(b,Math.max(a,x)); };
+  var lerp = function(a,b,t){ return a+(b-a)*t; };
+  var smooth = function(t){ t=clamp(t); return t*t*(3-2*t); };
+  var trap = function(p,a,b,c,d){ return p<=a?0 : p<b?(p-a)/(b-a) : p<=c?1 : p<d?1-(p-c)/(d-c) : 0; };
+
+  var stage=$('stage'), track=$('track'), frame=$('frame'), vid=$('vid');
+  var hero=$('hero'), tagWrap=$('tagWrap'), seasonal=$('seasonal'), hint=$('hint'), hintTxt=$('hintTxt');
+  var ovC=$('ovC'), ovDL=$('ovDL'), ovDR=$('ovDR'), pL=$('pL'), pR=$('pR');
+  var cl=[$('cl1'),$('cl2'),$('cl3')];
+
+  /* ---------- video time vs. scroll progress ----------
+     Flat stretches are the hold frames. The numbers in t are seconds in hero.mp4. */
+  var A=[
+    [0.00,0.10],[0.04,0.10],      /* hold A  tied gift     */
+    [0.26,4.50],[0.36,4.50],      /* hold B  full ribbon   */
+    [0.45,7.00],[0.52,7.00],      /* hold C  closed card   */
+    [0.58,8.70],[0.67,8.70],      /* hold D  open spread   */
+    [0.84,13.40],[0.91,13.40],    /* hold E  open box      */
+    [0.97,14.80],[1.00,14.80]     /* hold A  (reset)       */
+  ];
+  function timeAt(p){
+    for(var i=0;i<A.length-1;i++){
+      if(p<=A[i+1][0]){
+        var a=A[i], b=A[i+1];
+        if(a[1]===b[1]) return a[1];
+        return lerp(a[1],b[1],smooth((p-a[0])/(b[0]-a[0])));
+      }
+    }
+    return A[A.length-1][1];
+  }
+
+  /* ---------- camera: where the virtual lens is pointed at each hold ----------
+     cx, cy, w, h are in fractions of the video frame. fill is how much of the screen the object takes. */
+  var CAMS=[
+    {p0:0.00,p1:0.04,
+      d:{cx:.50,cy:.50,w:.34,h:.78,fill:.78,ox:.13,oy:0},
+      m:{cx:.50,cy:.50,w:.34,h:.78,fill:.74,ox:0,oy:.11}},
+    {p0:0.26,p1:0.36,
+      d:{cx:.50,cy:.503,w:1,h:.69,mode:'cover'},
+      m:{cx:.50,cy:.503,w:1,h:.69,mode:'cover'}},
+    {p0:0.45,p1:0.52,
+      d:{cx:.50,cy:.50,w:.2266,h:.636,fill:.84,ox:0,oy:0},
+      m:{cx:.50,cy:.50,w:.2266,h:.636,fill:.90,ox:0,oy:0}},
+    {p0:0.58,p1:0.67,
+      d:{cx:.4893,cy:.50,w:.433,h:.636,fill:.86,ox:0,oy:0},
+      m:{cx:.5961,cy:.50,w:.2203,h:.636,fill:.90,ox:0,oy:0}},
+    {p0:0.84,p1:0.91,
+      d:{cx:.50,cy:.465,w:.42,h:.82,fill:.86,ox:.07,oy:0},
+      m:{cx:.50,cy:.465,w:.42,h:.82,fill:.90,ox:0,oy:.10}},
+    {p0:0.97,p1:1.00,
+      d:{cx:.50,cy:.50,w:.34,h:.78,fill:.78,ox:.13,oy:0},
+      m:{cx:.50,cy:.50,w:.34,h:.78,fill:.74,ox:0,oy:.11}}
+  ];
+
+  var vw=0, vh=0, FW=0, FH=0, portrait=false;
+
+  function solve(c){
+    var rw=c.w*FW, rh=c.h*FH, z;
+    if(c.mode==='cover') z=Math.max(vw/rw, vh/rh)*1.03;
+    else z=Math.min(vw*c.fill/rw, vh*c.fill/rh);
+    return {z:clamp(z,0.3,3.4), cx:c.cx, cy:c.cy, ox:c.ox||0, oy:c.oy||0};
+  }
+  var solved=[];
+  function layout(){
+    vw=stage.clientWidth; vh=stage.clientHeight;
+    portrait = vw/vh < 1;
+    if(vw/vh >= 16/9){ FW=vw; FH=vw*9/16; } else { FH=vh; FW=vh*16/9; }
+    frame.style.width=FW+'px'; frame.style.height=FH+'px';
+    solved=CAMS.map(function(c){ return solve(portrait?c.m:c.d); });
+    render(true);
+  }
+
+  function camAt(p){
+    var n=CAMS.length;
+    if(p<=CAMS[0].p1) return solved[0];
+    for(var i=0;i<n-1;i++){
+      if(p<=CAMS[i+1].p0){
+        var f=smooth((p-CAMS[i].p1)/(CAMS[i+1].p0-CAMS[i].p1)), a=solved[i], b=solved[i+1];
+        return {z:Math.exp(lerp(Math.log(a.z),Math.log(b.z),f)), cx:lerp(a.cx,b.cx,f), cy:lerp(a.cy,b.cy,f), ox:lerp(a.ox,b.ox,f), oy:lerp(a.oy,b.oy,f)};
+      }
+      if(p<=CAMS[i+1].p1) return solved[i+1];
+    }
+    return solved[n-1];
+  }
+
+  /* ---------- progress (smoothed so video, camera and text move together) ---------- */
+  var target=0, cur=0, last=performance.now();
+  function readScroll(){
+    var r=track.getBoundingClientRect();
+    target=clamp(-r.top/(r.height-vh));
+  }
+  function show(el,o){ el.style.opacity=o; el.style.visibility=o>0.004?'visible':'hidden'; }
+
+  function render(force){
+    var p=cur;
+    /* camera */
+    var c=camAt(p);
+    var tx=vw*(0.5+c.ox)-c.cx*FW*c.z, ty=vh*(0.5+c.oy)-c.cy*FH*c.z;
+    frame.style.transform='translate('+tx+'px,'+ty+'px) scale('+c.z+')';
+
+    /* video */
+    var dur=vid.duration||15.04, t=clamp(timeAt(p),0,dur-0.04);
+    if(vid.readyState>=1 && !vid.seeking && Math.abs(vid.currentTime-t)>0.012){ vid.currentTime=t; }
+
+    /* screen-space text */
+    var heroO=Math.max(trap(p,-1,-0.5,0.03,0.07), trap(p,0.955,0.985,2,3));
+    show(hero,heroO);
+    var h1=trap(p,-1,-0.5,0.025,0.055), h2=trap(p,0.975,0.99,2,3);
+    hintTxt.textContent = p<0.5 ? 'Scroll to unwrap' : 'Keep scrolling';
+    show(hint, Math.max(h1,h2)*0.85);
+    show(tagWrap, trap(p,0.245,0.275,0.345,0.365));
+    show(seasonal, trap(p,0.855,0.875,0.905,0.925));
+
+    /* frame-anchored text */
+    show(ovC, trap(p,0.455,0.475,0.515,0.535));
+    var d=trap(p,0.585,0.605,0.665,0.683);
+    show(ovDL,d); show(ovDR,d); show(pL,d); show(pR,d);
+    var e=trap(p,0.86,0.88,0.905,0.925);
+    cl.forEach(function(el){ show(el,e); });
+  }
+
+  function loop(now){
+    var dt=Math.min(0.1,(now-last)/1000); last=now;
+    readScroll();
+    var k=1-Math.exp(-dt*9);
+    var diff=target-cur;
+    if(Math.abs(diff)>0.00005){ cur=Math.abs(diff)<0.0004?target:cur+diff*k; render(); }
+    requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize',layout);
+  vid.addEventListener('loadedmetadata',function(){ render(true); });
+  vid.addEventListener('seeked',function(){ render(true); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ render(true); }); }
+  layout();
+  readScroll(); cur=target; render(true);
+  requestAnimationFrame(loop);
+
+  /* tiny hook so the page can be inspected at an exact progress value */
+  window.__setP=function(p){ target=p; cur=p; render(true); };
+
+  var form=$('cform');
+  if(form){ form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var b=$('cbtn'); b.textContent='Sent (preview only)'; b.disabled=true;
+  }); }
+})();
+</script>
+</body>
+</html>
